@@ -1,0 +1,25 @@
+[Unit]
+Description=Raspberry Pi C++ Video Gateway
+Wants=network-online.target rpi-mediamtx.service
+After=network-online.target rpi-mediamtx.service
+
+[Service]
+Type=simple
+User=kai
+
+WorkingDirectory=/home/kai/projects/rpi_video_gateway
+
+ExecStart=/usr/bin/stdbuf -oL -eL /home/kai/projects/rpi_video_gateway/build/v4l2_capture_test
+
+Restart=on-failure
+RestartSec=3
+
+KillSignal=SIGTERM
+TimeoutStopSec=20
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rpi-video-gateway
+
+[Install]
+WantedBy=multi-user.target

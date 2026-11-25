@@ -1,0 +1,29 @@
+[Unit]
+Description=Raspberry Pi Video Recording Safety Guard
+Wants=rpi-mediamtx.service
+After=rpi-mediamtx.service
+
+[Service]
+Type=simple
+User=kai
+
+WorkingDirectory=/home/kai/projects/rpi_video_gateway
+
+ExecStart=/usr/bin/python3 -u /home/kai/projects/rpi_video_gateway/scripts/recording_guard.py
+
+Restart=always
+RestartSec=3
+
+Environment=RPI_REC_MIN_FREE_BYTES=1073741824
+Environment=RPI_REC_MAX_DIR_BYTES=4294967296
+Environment=RPI_REC_MAX_SESSION_SECONDS=1800
+
+UMask=0077
+NoNewPrivileges=true
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rpi-recording-guard
+
+[Install]
+WantedBy=multi-user.target

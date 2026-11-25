@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+python/.venv/
+.venv/
+
+# C++ build artifacts
+build/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# Runtime data (recordings, logs, sockets, SQLite, previews)
+runtime/
+*.sock
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Secrets and machine-specific configuration
+config/api-auth.env
+config/*.env
+*.secret
+*.key
+
+# Generated MediaMTX configuration and local binaries
+mediamtx/mediamtx.recording.yml
+mediamtx/bin/
+mediamtx/mediamtx.yml.backup*
+
+# Debug videos / binary artifacts
+*.h264
+*.mjpeg
+*.mp4
+*.log
+*.tar.gz
+
+# Local backups
+cpp_backup*/
+python_backup*/
+web_backup*/
+*.backup*
+*.bak
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local certificates and private keys
+auto.crt
+auto.key
+*.pem
+*.key
+*.p12
+*.pfx
+
+# MediaMTX executable and generated config
+mediamtx/bin/
+mediamtx/mediamtx.recording.yml
+mediamtx/*.backup
+
+# Documentation archive
+rpi_video_gateway_docs_v1.0.zip
+
+# Local project backups
+cpp_backup*/
+python_backup*/
+web_backup*/
+*.backup_v*
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+

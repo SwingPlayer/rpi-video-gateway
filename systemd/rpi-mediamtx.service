@@ -1,0 +1,25 @@
+[Unit]
+Description=Raspberry Pi MediaMTX Streaming Server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=kai
+
+WorkingDirectory=/home/kai/projects/rpi_video_gateway
+
+ExecStart=/home/kai/projects/rpi_video_gateway/mediamtx/bin/mediamtx /home/kai/projects/rpi_video_gateway/mediamtx/mediamtx.recording.yml
+
+Restart=on-failure
+RestartSec=3
+
+KillSignal=SIGTERM
+TimeoutStopSec=15
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rpi-mediamtx
+
+[Install]
+WantedBy=multi-user.target
